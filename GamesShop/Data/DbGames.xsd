@@ -67,7 +67,7 @@ FROM          videojuegos</CommandText>
               <Mapping SourceColumn="Cantidad_Disponible" DataSetColumn="Cantidad_Disponible" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteQuery">
+              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM `videojuegos` WHERE ((`ID_Videojuego` = @p1))</CommandText>
@@ -77,7 +77,7 @@ FROM          videojuegos</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertQuery">
+              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertQuery">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO `videojuegos` (`Nombre`, `Plataforma`, `Desarrollador`, `Precio`, `Clasificación`, `Género`, `Cantidad_Disponible`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)</CommandText>
@@ -93,7 +93,7 @@ FROM          videojuegos</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE `videojuegos` SET `Nombre` = @p1, `Plataforma` = @p2, `Desarrollador` = @p3, `Precio` = @p4, `Clasificación` = @p5, `Género` = @p6, `Cantidad_Disponible` = @p7 WHERE ((`ID_Videojuego` = @p8))</CommandText>
@@ -112,6 +112,85 @@ FROM          videojuegos</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="userTableAdapter" GeneratorDataComponentClassName="userTableAdapter" Name="user" UserDataComponentName="userTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="gamesshop.`user`" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `user` WHERE ((`id_usuario` = @p1))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `user` (`nombre_usuario`, `correo_electronico`, `contrasena`, `fecha_creacion`) VALUES (@p1, @p2, @p3, @p4)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="correo_electronico" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="contrasena" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_creacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `user`.*
+FROM     `user`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `user` SET `nombre_usuario` = @p1, `correo_electronico` = @p2, `contrasena` = @p3, `fecha_creacion` = @p4 WHERE ((`id_usuario` = @p5))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nombre_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="correo_electronico" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="contrasena" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="fecha_creacion" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@p5" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="id_usuario" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_usuario" DataSetColumn="id_usuario" />
+              <Mapping SourceColumn="nombre_usuario" DataSetColumn="nombre_usuario" />
+              <Mapping SourceColumn="correo_electronico" DataSetColumn="correo_electronico" />
+              <Mapping SourceColumn="contrasena" DataSetColumn="contrasena" />
+              <Mapping SourceColumn="fecha_creacion" DataSetColumn="fecha_creacion" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="gamesshop.`user`" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByName" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByName" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id_usuario, nombre_usuario, correo_electronico, contrasena, fecha_creacion
+FROM     `user`
+WHERE  (nombre_usuario = @nombre_usuario)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="nombre_usuario" ColumnName="nombre_usuario" DataSourceName="gamesshop.`user`" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@nombre_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="nombre_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="gamesshopConnectionString (Web.config)" DbObjectName="gamesshop.`user`" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUsernameOrEmail" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataByUsernameOrEmail" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUsernameOrEmail" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id_usuario, nombre_usuario, correo_electronico, contrasena, fecha_creacion
+FROM     `user`
+WHERE  (nombre_usuario = @nombre_usuario) OR
+                  (correo_electronico = @correo_electronico)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="nombre_usuario" ColumnName="nombre_usuario" DataSourceName="gamesshop.`user`" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@nombre_usuario" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="nombre_usuario" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="correo_electronico" ColumnName="correo_electronico" DataSourceName="gamesshop.`user`" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@correo_electronico" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="correo_electronico" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -120,7 +199,7 @@ FROM          videojuegos</CommandText>
   <xs:element name="DbGames" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DbGames" msprop:Generator_UserDSName="DbGames">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="videojuegos" msprop:Generator_TableClassName="videojuegosDataTable" msprop:Generator_TableVarName="tablevideojuegos" msprop:Generator_TablePropName="videojuegos" msprop:Generator_RowDeletingName="videojuegosRowDeleting" msprop:Generator_RowChangingName="videojuegosRowChanging" msprop:Generator_RowEvHandlerName="videojuegosRowChangeEventHandler" msprop:Generator_RowDeletedName="videojuegosRowDeleted" msprop:Generator_UserTableName="videojuegos" msprop:Generator_RowChangedName="videojuegosRowChanged" msprop:Generator_RowEvArgName="videojuegosRowChangeEvent" msprop:Generator_RowClassName="videojuegosRow">
+        <xs:element name="videojuegos" msprop:Generator_TableClassName="videojuegosDataTable" msprop:Generator_TableVarName="tablevideojuegos" msprop:Generator_RowChangedName="videojuegosRowChanged" msprop:Generator_TablePropName="videojuegos" msprop:Generator_RowDeletingName="videojuegosRowDeleting" msprop:Generator_RowChangingName="videojuegosRowChanging" msprop:Generator_RowEvHandlerName="videojuegosRowChangeEventHandler" msprop:Generator_RowDeletedName="videojuegosRowDeleted" msprop:Generator_RowClassName="videojuegosRow" msprop:Generator_UserTableName="videojuegos" msprop:Generator_RowEvArgName="videojuegosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID_Videojuego" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID_Videojuego" msprop:Generator_ColumnPropNameInRow="ID_Videojuego" msprop:Generator_ColumnPropNameInTable="ID_VideojuegoColumn" msprop:Generator_UserColumnName="ID_Videojuego" type="xs:int" />
@@ -164,11 +243,44 @@ FROM          videojuegos</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="user" msprop:Generator_TableClassName="userDataTable" msprop:Generator_TableVarName="tableuser" msprop:Generator_TablePropName="user" msprop:Generator_RowDeletingName="userRowDeleting" msprop:Generator_RowChangingName="userRowChanging" msprop:Generator_RowEvHandlerName="userRowChangeEventHandler" msprop:Generator_RowDeletedName="userRowDeleted" msprop:Generator_UserTableName="user" msprop:Generator_RowChangedName="userRowChanged" msprop:Generator_RowEvArgName="userRowChangeEvent" msprop:Generator_RowClassName="userRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_usuario" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid_usuario" msprop:Generator_ColumnPropNameInRow="id_usuario" msprop:Generator_ColumnPropNameInTable="id_usuarioColumn" msprop:Generator_UserColumnName="id_usuario" type="xs:int" />
+              <xs:element name="nombre_usuario" msprop:Generator_ColumnVarNameInTable="columnnombre_usuario" msprop:Generator_ColumnPropNameInRow="nombre_usuario" msprop:Generator_ColumnPropNameInTable="nombre_usuarioColumn" msprop:Generator_UserColumnName="nombre_usuario" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="correo_electronico" msprop:Generator_ColumnVarNameInTable="columncorreo_electronico" msprop:Generator_ColumnPropNameInRow="correo_electronico" msprop:Generator_ColumnPropNameInTable="correo_electronicoColumn" msprop:Generator_UserColumnName="correo_electronico" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contrasena" msprop:Generator_ColumnVarNameInTable="columncontrasena" msprop:Generator_ColumnPropNameInRow="contrasena" msprop:Generator_ColumnPropNameInTable="contrasenaColumn" msprop:Generator_UserColumnName="contrasena" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha_creacion" msprop:Generator_ColumnVarNameInTable="columnfecha_creacion" msprop:Generator_ColumnPropNameInRow="fecha_creacion" msprop:Generator_ColumnPropNameInTable="fecha_creacionColumn" msprop:Generator_UserColumnName="fecha_creacion" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:videojuegos" />
       <xs:field xpath="mstns:ID_Videojuego" />
+    </xs:unique>
+    <xs:unique name="user_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:user" />
+      <xs:field xpath="mstns:id_usuario" />
     </xs:unique>
   </xs:element>
 </xs:schema>
