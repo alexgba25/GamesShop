@@ -1597,7 +1597,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[6];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT      videojuegos.*\r\nFROM          videojuegos";
@@ -1616,77 +1616,45 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO `videojuegos` (`Nombre`, `Plataforma`, `Desarrollador`, `Precio`, `Cl" +
-                "asificación`, `Género`, `Cantidad_Disponible`) VALUES (@p1, @p2, @p3, @p4, @p5, " +
-                "@p6, @p7)";
+            this._commandCollection[2].CommandText = "SELECT      ID_Videojuego, Nombre, Plataforma, Desarrollador, Precio, Clasificaci" +
+                "ón, Género, Cantidad_Disponible\r\nFROM          videojuegos\r\nWHERE      (ID_Video" +
+                "juego = @ID_Videojuego)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p1";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 100;
-            param.IsNullable = true;
-            param.SourceColumn = "Nombre";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p2";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 50;
-            param.IsNullable = true;
-            param.SourceColumn = "Plataforma";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p3";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 100;
-            param.IsNullable = true;
-            param.SourceColumn = "Desarrollador";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p4";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Precio";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 20;
-            param.IsNullable = true;
-            param.SourceColumn = "Clasificación";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p6";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 50;
-            param.IsNullable = true;
-            param.SourceColumn = "Género";
-            param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p7";
+            param.ParameterName = "@ID_Videojuego";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Cantidad_Disponible";
+            param.SourceColumn = "ID_Videojuego";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE `videojuegos` SET `Nombre` = @p1, `Plataforma` = @p2, `Desarrollador` = @p" +
-                "3, `Precio` = @p4, `Clasificación` = @p5, `Género` = @p6, `Cantidad_Disponible` " +
-                "= @p7 WHERE ((`ID_Videojuego` = @p8))";
+            this._commandCollection[3].CommandText = "UPDATE      videojuegos\r\nSET               Cantidad_Disponible = @Cantidad_Dispon" +
+                "ible\r\nWHERE      (ID_Videojuego = @ID_Videojuego)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Cantidad_Disponible";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Cantidad_Disponible";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[3].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ID_Videojuego";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "ID_Videojuego";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "INSERT INTO `videojuegos` (`Nombre`, `Plataforma`, `Desarrollador`, `Precio`, `Cl" +
+                "asificación`, `Género`, `Cantidad_Disponible`) VALUES (@p1, @p2, @p3, @p4, @p5, " +
+                "@p6, @p7)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
             param.DbType = global::System.Data.DbType.String;
@@ -1695,7 +1663,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Nombre";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p2";
             param.DbType = global::System.Data.DbType.String;
@@ -1704,7 +1672,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Plataforma";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p3";
             param.DbType = global::System.Data.DbType.String;
@@ -1713,7 +1681,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Desarrollador";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p4";
             param.DbType = global::System.Data.DbType.Decimal;
@@ -1721,7 +1689,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Precio";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
             param.DbType = global::System.Data.DbType.String;
@@ -1730,7 +1698,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Clasificación";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p6";
             param.DbType = global::System.Data.DbType.String;
@@ -1739,7 +1707,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Género";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
             param.DbType = global::System.Data.DbType.Int32;
@@ -1747,7 +1715,74 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Cantidad_Disponible";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE `videojuegos` SET `Nombre` = @p1, `Plataforma` = @p2, `Desarrollador` = @p" +
+                "3, `Precio` = @p4, `Clasificación` = @p5, `Género` = @p6, `Cantidad_Disponible` " +
+                "= @p7 WHERE ((`ID_Videojuego` = @p8))";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p1";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 100;
+            param.IsNullable = true;
+            param.SourceColumn = "Nombre";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p2";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "Plataforma";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p3";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 100;
+            param.IsNullable = true;
+            param.SourceColumn = "Desarrollador";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p4";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
+            param.IsNullable = true;
+            param.SourceColumn = "Precio";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p5";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 20;
+            param.IsNullable = true;
+            param.SourceColumn = "Clasificación";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p6";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 50;
+            param.IsNullable = true;
+            param.SourceColumn = "Género";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Cantidad_Disponible";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.Int32;
@@ -1755,7 +1790,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "ID_Videojuego";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1777,6 +1812,60 @@ namespace GamesShop.Data.DbGamesTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DbGames.videojuegosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DbGames.videojuegosDataTable dataTable = new DbGames.videojuegosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(DbGames.videojuegosDataTable dataTable, int ID_Videojuego) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_Videojuego));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DbGames.videojuegosDataTable GetDataById(int ID_Videojuego) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_Videojuego));
+            DbGames.videojuegosDataTable dataTable = new DbGames.videojuegosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(DbGames.videojuegosDataTable dataTable, int Cantidad_Disponible, int ID_Videojuego) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Cantidad_Disponible));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ID_Videojuego));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DbGames.videojuegosDataTable UpdateQuantity(int Cantidad_Disponible, int ID_Videojuego) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Cantidad_Disponible));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ID_Videojuego));
             DbGames.videojuegosDataTable dataTable = new DbGames.videojuegosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1969,7 +2058,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(string p1, string p2, string p3, decimal p4, string p5, string p6, int p7) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[4];
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }
@@ -2024,7 +2113,7 @@ namespace GamesShop.Data.DbGamesTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(string p1, string p2, string p3, decimal p4, string p5, string p6, int p7, int p8) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[3];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[5];
             if ((p1 == null)) {
                 throw new global::System.ArgumentNullException("p1");
             }

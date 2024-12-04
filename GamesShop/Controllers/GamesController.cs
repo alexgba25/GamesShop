@@ -17,6 +17,11 @@ namespace GamesShop.Controllers
             return adapter.GetData();
         }
 
+        public DataTable GetById(int id)
+        {
+            return adapter.GetDataById(id);
+        }
+
         public void AddGame(string nombre, string plataforma, string desarrollador, decimal precio, string clasificación, string género, int cantidadDisponible)
         {
             adapter.InsertQuery(nombre, plataforma, desarrollador, precio, clasificación, género, cantidadDisponible);
@@ -31,6 +36,33 @@ namespace GamesShop.Controllers
         public void UpdateGame(int id, string nombre, string plataforma, string desarrollador, decimal precio, string clasificación, string género, int cantidadDisponible)
         {
             adapter.UpdateQuery(nombre, plataforma, desarrollador, precio, clasificación, género, cantidadDisponible, id);
+        }
+
+        public int GetQuantity(int id)
+        {
+            DataTable game = adapter.GetDataById(id);
+            if (game.Rows.Count > 0)
+            {
+                return Convert.ToInt32(game.Rows[0]["Cantidad_Disponible"]);
+            }
+            return 0;
+        }
+
+        public void UpdateQuantity(int id, int change)
+        {
+            DataTable game = adapter.GetDataById(id);
+            if (game.Rows.Count > 0)
+            {
+                int currentQuantity = Convert.ToInt32(game.Rows[0]["Cantidad_Disponible"]);
+                int newQuantity = currentQuantity + change;
+
+                if (newQuantity < 0)
+                {
+                    throw new Exception("No hay suficientes unidades en inventario.");
+                }
+
+                adapter.UpdateQuantity(newQuantity, id);
+            }
         }
 
     }

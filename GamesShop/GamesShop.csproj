@@ -78,13 +78,17 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Views\Admin\Games.aspx" />
+    <Content Include="Views\Anonymous\Cart.aspx" />
+    <Content Include="Views\Anonymous\Shop.aspx" />
     <Content Include="Views\Auth\Login.aspx" />
     <Content Include="Views\Auth\Register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\EncryptController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Data\DbGames.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -94,6 +98,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Games.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +108,20 @@
     </Compile>
     <Compile Include="Views\Admin\Games.aspx.designer.cs">
       <DependentUpon>Games.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Anonymous\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Anonymous\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Anonymous\Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Anonymous\Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Auth\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

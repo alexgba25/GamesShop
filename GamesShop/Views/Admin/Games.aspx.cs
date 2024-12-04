@@ -1,4 +1,5 @@
 ﻿using GamesShop.Controllers;
+using GamesShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,12 @@ namespace GamesShop.Views.Admin
         {
             if (!IsPostBack)
             {
+                
+               
                 LoadData();
             }
         }
+
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {

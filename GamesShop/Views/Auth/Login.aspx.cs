@@ -17,7 +17,7 @@ namespace GamesShop.Views.Auth
             if (Session["username"] != null)
             {
                 // Si está logueado, redirigir a la página de juegos
-                Response.Redirect("Admin/Games.aspx");
+                Response.Redirect("~/Views/Admin/Games.aspx");
             }
         }
 
@@ -33,7 +33,7 @@ namespace GamesShop.Views.Auth
                 Session["username"] = username; // Puedes almacenar más información si es necesario
 
                 // Redirigir a la página de juegos
-                Response.Redirect("Games.aspx");
+                Response.Redirect("~/Views/Admin/Games.aspx");
             }
             else
             {
