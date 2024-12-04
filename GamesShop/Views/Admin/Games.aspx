@@ -1,14 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Games.aspx.cs" Inherits="GamesShop.Views.Admin.Games" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Games.aspx.cs" Inherits="GamesShop.Views.Admin.Games" MasterPageFile="~/Views/MasterPage/Layout.master" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Administrar Videojuegos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server" class="container mt-4">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Admin</title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
+         <form id="form1" runat="server" class="container mt-4">
         <h1 class="mb-4">Administrar Videojuegos</h1>
 
         <%-- GridView para listar videojuegos --%>
@@ -148,5 +144,4 @@
 
 
     </form>
-</body>
-</html>
+</asp:Content>
