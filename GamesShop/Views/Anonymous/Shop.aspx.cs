@@ -20,6 +20,8 @@ namespace GamesShop.Views.Anonymous
             {
                 LoadGames();
             }
+
+           
         }
 
         private void LoadGames()

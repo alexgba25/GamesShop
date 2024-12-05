@@ -17,8 +17,12 @@ namespace GamesShop.Views.Admin
         {
             if (!IsPostBack)
             {
-                
-               
+                // Verificar si está logueado
+                if (Session["username"] == null)
+                {
+                    Response.Redirect("~/Views/Auth/Shop.aspx");
+                }
+
                 LoadData();
             }
         }
