@@ -1,4 +1,5 @@
 ﻿using GamesShop.Data.DbGamesTableAdapters;
+using GamesShop.Interfaces;
 using GamesShop.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace GamesShop.Controllers
 {
-    public class UsersController
+    public class UsersController : IUsersController
     {
         private readonly userTableAdapter _adapter;
 

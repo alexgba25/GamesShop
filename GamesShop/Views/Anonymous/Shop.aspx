@@ -13,7 +13,7 @@
                     <asp:BoundField DataField="Plataforma" HeaderText="Plataforma" />
                     <asp:BoundField DataField="Precio" HeaderText="Precio" DataFormatString="{0:C}" />
                     <asp:BoundField DataField="Cantidad_Disponible" HeaderText="Cantidad Disponible" />
-                    <asp:TemplateField>
+                  <asp:TemplateField HeaderText="Acciones">
                         <ItemTemplate>
                             <asp:Button ID="btnAddToCart" runat="server" CommandName="AddToCart" Text="Agregar al Carrito"
                                 CommandArgument='<%# Eval("ID_Videojuego") %>' CssClass="btn btn-primary" />

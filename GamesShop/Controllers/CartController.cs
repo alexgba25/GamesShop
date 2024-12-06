@@ -1,4 +1,5 @@
-﻿using GamesShop.Models;
+﻿using GamesShop.Interfaces;
+using GamesShop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace GamesShop.Controllers
 {
-    public class CartController
+    public class CartController : ICartController
     {
         private const string SessionCartKey = "Cart";
         private readonly GamesController _gamesController = new GamesController();
@@ -19,35 +20,37 @@ namespace GamesShop.Controllers
             return (List<Cart>)HttpContext.Current.Session[SessionCartKey];
         }
 
-        public void AddToCart(Cart item)
+        public string AddToCart(Cart item)
         {
             var cart = GetCart();
             var existingItem = cart.Find(i => i.ID_Videojuego == item.ID_Videojuego);
 
+            int availableQuantity = _gamesController.GetQuantity(item.ID_Videojuego);
+
             if (existingItem != null)
             {
-                int availableQuantity = _gamesController.GetQuantity(item.ID_Videojuego);
                 if (existingItem.Cantidad + item.Cantidad <= availableQuantity)
                 {
                     existingItem.Cantidad += item.Cantidad;
                     existingItem.Subtotal = existingItem.Cantidad * existingItem.Precio; // Actualizar subtotal
+                    return "Producto agregado al carrito.";
                 }
                 else
                 {
-                    throw new Exception("Cantidad insuficiente en inventario.");
+                    return "Cantidad insuficiente en inventario.";
                 }
             }
             else
             {
-                int availableQuantity = _gamesController.GetQuantity(item.ID_Videojuego);
                 if (item.Cantidad <= availableQuantity)
                 {
                     item.Subtotal = item.Cantidad * item.Precio; // Calcular subtotal al agregar
                     cart.Add(item);
+                    return "Producto agregado al carrito.";
                 }
                 else
                 {
-                    throw new Exception("Cantidad insuficiente en inventario.");
+                    return "Cantidad insuficiente en inventario.";
                 }
             }
         }
@@ -67,6 +70,17 @@ namespace GamesShop.Controllers
         public void ClearCart()
         {
             HttpContext.Current.Session[SessionCartKey] = new List<Cart>();
+        }
+
+        public void RemoveFromCart(int idVideojuego)
+        {
+            var cart = GetCart();
+            var itemToRemove = cart.FirstOrDefault(item => item.ID_Videojuego == idVideojuego);
+
+            if (itemToRemove != null)
+            {
+                cart.Remove(itemToRemove);
+            }
         }
 
 

@@ -20,7 +20,7 @@ namespace GamesShop.Views.Admin
                 // Verificar si está logueado
                 if (Session["username"] == null)
                 {
-                    Response.Redirect("~/Views/Auth/Shop.aspx");
+                    Response.Redirect("~/Views/Anonymous/Shop.aspx");
                 }
 
                 LoadData();

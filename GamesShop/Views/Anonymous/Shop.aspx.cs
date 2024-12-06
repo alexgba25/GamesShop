@@ -60,12 +60,13 @@ namespace GamesShop.Views.Anonymous
                 if (cartItem.Cantidad <= cantidadDisponible)
                 {
                     _cartController.AddToCart(cartItem);
+                    string message = _cartController.AddToCart(cartItem);
+                    Response.Write($"<script>alert('{message}');</script>");
                 }
                 else
                 {
-                    // Mostrar un mensaje de error (esto depende del diseño de la aplicación)
-                    // Ejemplo: Mostrar una alerta en el cliente
-                    ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Cantidad insuficiente en inventario.');", true);
+                    string message = _cartController.AddToCart(cartItem);
+                    Response.Write($"<script>alert('{message}');</script>");
                 }
             }
         }

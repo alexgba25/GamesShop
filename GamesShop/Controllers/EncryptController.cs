@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GamesShop.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web;
 
 namespace GamesShop.Controllers
 {
-    public class EncryptController
+    public class EncryptController : IEncryptController
     {
         private static readonly string encryptionKey = "YourKey123456789";
 

@@ -83,6 +83,22 @@ namespace GamesShop.Views.Anonymous
             }
         }
 
+        protected void GridViewCart_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Remove")
+            {
+                int idVideojuego = Convert.ToInt32(e.CommandArgument);
+
+                // Eliminar el producto del carrito
+                _cartController.RemoveFromCart(idVideojuego);
+
+                // Recargar el carrito
+                LoadCart();
+
+                // Mostrar mensaje de confirmación
+                Response.Write("<script>alert('Producto eliminado del carrito.');</script>");
+            }
+        }
 
 
         protected void btnBackToShop_Click(object sender, EventArgs e)

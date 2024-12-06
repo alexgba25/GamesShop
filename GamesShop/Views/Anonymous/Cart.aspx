@@ -6,13 +6,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
           <form id="form1" runat="server" class="container mt-4">
         <h1 class="mb-4">Carrito de Compras</h1>
-        <asp:GridView ID="GridViewCart" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered">
+        <asp:GridView ID="GridViewCart" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" OnRowCommand="GridViewCart_RowCommand">
             <Columns>
                 <asp:BoundField DataField="ID_Videojuego" HeaderText="ID" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="Precio" HeaderText="Precio Unitario" DataFormatString="{0:C}" />
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
                 <asp:BoundField DataField="Subtotal" HeaderText="Subtotal" DataFormatString="{0:C}" />
+                 <asp:TemplateField HeaderText="Acciones">
+            <ItemTemplate>
+                <asp:Button ID="btnRemove" runat="server" CommandName="Remove" Text="Eliminar" 
+                    CommandArgument='<%# Eval("ID_Videojuego") %>' CssClass="btn btn-danger btn-sm" />
+            </ItemTemplate>
+        </asp:TemplateField>
             </Columns>
         </asp:GridView>
          <%-- Mostrar Total --%>
@@ -37,6 +43,8 @@
             <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
             <asp:BoundField DataField="Precio" HeaderText="Precio" DataFormatString="{0:C}" />
             <asp:BoundField DataField="Subtotal" HeaderText="Subtotal" DataFormatString="{0:C}" />
+             <asp:TemplateField HeaderText="Acciones">
+        </asp:TemplateField>
         </Columns>
     </asp:GridView>
     <p><strong>Total: </strong><asp:Label ID="lblPurchaseTotal" runat="server"></asp:Label></p>
