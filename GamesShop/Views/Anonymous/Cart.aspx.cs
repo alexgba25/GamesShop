@@ -76,6 +76,7 @@ namespace GamesShop.Views.Anonymous
                 LoadCart();
 
                 Response.Write("<script>alert('Pago realizado exitosamente. Revisa tu correo.');</script>");
+                btnPay.Text = string.Empty;
             }
             catch (Exception ex)
             {

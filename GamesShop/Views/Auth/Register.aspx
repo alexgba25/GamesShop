@@ -7,10 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Registro</title>
     <link href="Content/site.css" rel="stylesheet" />
+    <link href="../../Content/css/login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="register-container">
+          <div class="login-container">
             <h2>Registro</h2>
             <asp:TextBox ID="txtUserName" CssClass="form-control" runat="server" placeholder="Nombre de usuario"></asp:TextBox>
             <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" placeholder="Correo Electrónico"></asp:TextBox>

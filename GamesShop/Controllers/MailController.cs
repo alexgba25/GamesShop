@@ -55,7 +55,7 @@ namespace GamesShop.Controllers
 
             foreach (var item in cartItems)
             {
-                body += $"Nombre: {item.Nombre}, Cantidad: {item.Cantidad}, Precio Unitario: ${item.Precio}, Subtotal: ${item.Subtotal}\n";
+                body += $"Nombre: {item.Nombre}\nCantidad: {item.Cantidad}\nPrecio Unitario: ${item.Precio}\nSubtotal: ${item.Subtotal}\n\n";
                 total += item.Subtotal;
             }
 

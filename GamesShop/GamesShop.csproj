@@ -85,6 +85,7 @@
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Logo.png" />
     <Content Include="Views\Admin\Games.aspx" />
     <Content Include="Views\Anonymous\Cart.aspx" />
     <Content Include="Views\Anonymous\Shop.aspx" />
